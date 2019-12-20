@@ -1,13 +1,13 @@
-import callReducer from '../features/call/ioCallReducer';
-import { Call } from '../features/call/types';
+import newsReducer from '../features/news/reducer';
+import { State as NewsState } from '../features/news/types'
 import { IO } from 'funfix';
 
 export type reduxStateT = {
-  ioCall: [IO<Call>, Call];
+  ioNews: [IO<NewsState>, NewsState];
 };
 
 export const reducers = {
-  ioCall: callReducer
+  ioNews: newsReducer
 }
 
 export default reducers;

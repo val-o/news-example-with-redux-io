@@ -8,9 +8,7 @@ const ioMiddleware: Middleware<{}, reduxStateT> = store => next => (action: {typ
   const { dispatch, getState } = store;
   next(action); // we want to call the middleware after the reducers are ready
 
-  console.log("type::", action.type)
   if (action.type.includes('cancel')) {
-    console.log('pina', cancelableIOExecution)
     cancelableIOExecution && cancelableIOExecution.cancel();
   }
   
@@ -36,9 +34,10 @@ const ioMiddleware: Middleware<{}, reduxStateT> = store => next => (action: {typ
             })
           },
           val => {
+            console.log('action::', action.type)
             console.log(val)
             dispatch({
-              type: action.type + 'Success',
+              type: 'commit',
               payload: val
             })
           })
