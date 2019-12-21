@@ -36,15 +36,8 @@ const fetchApiIO = <T>(p: ConfigParams) => fetchIO<T>(config.api(p), {});
 type ApiResult = {status: string, totalResults: number, articles: Array<NewsAlike>}
 
 export const initializeState = () => new State(config, [], None, 'US', [], None, ["TopNews"])
-
 export const newsAlgebraImplementation = new NewsAlgebra<
-  Categories,
-  News,
-  NewsID,
-  Language,
-  Search,
-  AppStatus,
-  State
+  Categories, News, Language, Search, AppStatus, State
 >(
   // changeLanguage
   (lang: Language) => _ => IO.of(() => lang),
