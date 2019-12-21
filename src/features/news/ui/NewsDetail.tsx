@@ -41,7 +41,7 @@ const NewsDetail = () => {
                 )}
               />
             </Box>
-            <Text>{news.content.getOrElse(news.description)}</Text>
+            <Text>{news.content.getOrElse(news.description.getOrElse('-'))}</Text>
           </>
         )
       )}

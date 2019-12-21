@@ -1,4 +1,31 @@
-# Domain driven design with react redux app in typescript
+# News example app
+
+### To start the app:
+
+* create .env with with REACT_APP_NEWS_APP_KEY as your news api key
+* yarn
+* yarn start
+
+Stack:
+
+* Typescript 
+  - typescriptlang.org
+* Custom pure functional algebra for describing the business logic and its implementation 
+  - Based on Functional and Reactive Domain modelling from Debasish Ghosh
+* Funfix for ADT ( Option, IO )
+  - https://funfix.org/api/core/
+* homemade redux middleware for handling the io monad updates
+* custom router
+
+### Benefits of the current stack
+* With algebra we can describe our business logic and remain highly generic about everything.
+* We can easily switch between algebra implementations (easier mocking, refactoring)
+* Because everything is described by an IO monad (the side effects as well), everything is referentially transparent and pure so we can keep all our state updating functions inside a reducer. No more separated logic with mutations for action creators. For those who doesn't have experience with IO think about it as a Promise which is lazily evaluated.
+* All nullable values are lifted inside Option ADT. This mean no more "Can't call undefined on an undefined" ..
+* Async functions are cancellable
+* No complex logic with hooks
+
+Quick example how everything works:
 
 ### This POC has multiple goals:
 1. Be able to define an algebra which will describe a subdomain of our business logic.
